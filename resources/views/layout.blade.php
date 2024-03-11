@@ -64,7 +64,8 @@ $dir = 'public/frontend/';
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="{{URL::to('/trang-chu')}}"><img src="{{ $dir . 'images/home/logo.png' }}" alt="" /></a>
+                            <a href="{{ URL::to('/trang-chu') }}"><img src="{{ $dir . 'images/home/logo.png' }}"
+                                    alt="" /></a>
                         </div>
                         <div class="btn-group pull-right">
                             <div class="btn-group">
@@ -122,7 +123,7 @@ $dir = 'public/frontend/';
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="{{URL::to('/trang-chu')}}" class="active">Home</a></li>
+                                <li><a href="{{ URL::to('/trang-chu') }}" class="active">Home</a></li>
                                 <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
                                         <li><a href="shop.html">Products</a></li>

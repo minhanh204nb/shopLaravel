@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',  [HomeController::class, 'display']);
 Route::get('/trang-chu', [HomeController::class, 'display']);
+Route::get('/admin', [AdminController::class, 'loginAdmin']);
+Route::get('/dashboard', [AdminController::class, 'displayDashboard']);
+Route::post('/admin-dashboard', [AdminController::class, 'dashBoard']);

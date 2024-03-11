@@ -1,1 +1,10 @@
-create controller : php artisan make:controller UserController
+create controller : 
+php artisan make:controller UserController
+
+create table in database : 
+php artisan make:migration create_flights_table
+php artisan migrate
+
+sửa  lại commit cuối cùng :
+git commit --amend -m "Thông tin về commit"
+git push -f
