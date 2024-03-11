@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use Session;
+use Illuminate\Support\Facades\Redirect;
 
+session_start();
 class AdminController extends Controller
 {
     public function loginAdmin()
@@ -28,9 +31,18 @@ class AdminController extends Controller
             ->first();
 
         if ($result) {
-            return view('admin.dashboard');
+            Session::put('admin_name', $result->admin_name);
+            Session::put('admin_id', $result->admin_id);
+            return Redirect::to('dashboard');
         } else {
-            return redirect()->back()->with('error', 'Invalid email or password');
+            Session::put('message', 'Vui long nhap dung password');
+            return Redirect::to('admin');
         }
+    }
+    public function logout()
+    {
+        Session::put('admin_name', null);
+        Session::put('admin_id', null);
+        return Redirect::to('trang-chu');
     }
 }

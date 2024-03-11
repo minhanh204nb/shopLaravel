@@ -20,3 +20,4 @@ Route::get('/trang-chu', [HomeController::class, 'display']);
 Route::get('/admin', [AdminController::class, 'loginAdmin']);
 Route::get('/dashboard', [AdminController::class, 'displayDashboard']);
 Route::post('/admin-dashboard', [AdminController::class, 'dashBoard']);
+Route::get('/logout', [AdminController::class, 'logout']);
