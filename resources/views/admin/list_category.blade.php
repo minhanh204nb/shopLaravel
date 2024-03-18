@@ -8,6 +8,13 @@
                 </div>
                 <div class="row w3-res-tb">
                     <div class="col-sm-5 m-b-xs">
+                        <?php
+                        $message = Session::get('message');
+                        if ($message) {
+                            echo $message;
+                            Session::put('message', null);
+                        }
+                        ?>
                     </div>
                     <div class="col-sm-4">
                     </div>
@@ -31,21 +38,46 @@
                                 </th>
                                 <th>Id</th>
                                 <th>Name Category</th>
+                                <th>Ẩn/Hiện</th>
                                 <th style="width:30px;"></th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td><label class="i-checks m-b-none"><input type="checkbox" name="post[]"><i></i></label>
-                                </td>
-                                <td>1</td>
-                                <td>PS4</td>
-                                <td>
-                                    <a href="" class="active" ui-toggle-class=""><i
-                                            class="fa fa-check text-success text-active"></i><i
-                                            class="fa fa-times text-danger text"></i></a>
-                                </td>
-                            </tr>
+                            @foreach ($all_category as $category)
+                                <tr>
+                                    <td>
+                                        <label class="i-checks m-b-none">
+                                            <input type="checkbox" name="post[]"><i></i>
+                                        </label>
+                                    </td>
+                                    <td>{{ $category->id }}</td>
+                                    <td>{{ $category->name_category }}</td>
+                                    <td>
+                                        @if ($category->status_category === '1')
+                                            <a href="{{ url('un-action-category/' . $category->id) }}">
+                                                <i class="fa fa-thumbs-up"
+                                                    style="font-size:35px;color:rgb(115, 0, 255)"></i>
+                                            </a>
+                                        @else
+                                            <a href="{{ url('action-category/' . $category->id) }}">
+                                                <i class="fa fa-thumbs-down" style="font-size:35px;color:red"></i>
+                                            </a>
+                                        @endif
+                                    </td>
+                                    <td>
+                                        <a href="{{ url('edit-category/' . $category->id) }}" class="active"
+                                            ui-toggle-class="">
+                                            <i class="fa fa-check text-success text-active"></i>
+
+                                        </a>
+                                        <a href="{{ url('delete-category/' . $category->id) }}" class="active"
+                                            ui-toggle-class="">
+                                            <i class="fa fa-times text-danger text"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            @endforeach
+
                         </tbody>
                     </table>
                 </div>

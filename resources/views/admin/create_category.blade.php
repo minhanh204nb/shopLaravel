@@ -6,17 +6,25 @@
                 <div class="col-lg-12">
                     <section class="panel">
                         <header class="panel-heading">
-                           Create Category
+                            Create Category
                         </header>
                         <div class="panel-body">
                             <div class="position-center">
-                                <form role="form">
+                                <form role="form" action="{{ url('save-categoty') }}" method="POST">
+                                    {{ csrf_field() }}
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Name Category</label>
-                                        <input type="text" class="form-control" id="exampleInputEmail1"
-                                            placeholder="Enter email">
+                                        <input type="text" name="name_category" class="form-control"
+                                            id="exampleInputEmail1" placeholder="Enter email">
                                     </div>
-                                    <button type="submit" class="btn btn-info">Submit</button>
+                                    <div class="form-group">
+                                        <label for="">Status</label>
+                                        <select class="form-control" name="status_category" id="">
+                                            <option value="1">Hiện</option>
+                                            <option value="0">Ẩn</option>
+                                        </select>
+                                    </div>
+                                    <button type="submit" name="add_category" class="btn btn-info">Add</button>
                                 </form>
                             </div>
                         </div>

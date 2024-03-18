@@ -12,10 +12,10 @@ $dir = 'public/backend/';
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
     <!-- bootstrap-css -->
-    <link rel="stylesheet" href="{{ $dir }}css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset($dir . 'css/bootstrap.min.css') }}">
     <!-- //bootstrap-css -->
     <!-- Custom CSS -->
-    <link href="{{ $dir }}css/style.css" rel='stylesheet' type='text/css' />
+    <link href="{{ asset($dir . 'css/style.css') }}" rel='stylesheet' type='text/css' />
     <link href="{{ $dir }}css/style-responsive.css" rel="stylesheet" />
     <!-- font CSS -->
     <link
@@ -25,8 +25,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="{{ $dir }}css/font.css" type="text/css" />
     <link href="{{ $dir }}css/font-awesome.css" rel="stylesheet">
     <link rel="stylesheet" href="{{ $dir }}css/morris.css" type="text/css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/font-awesome.min.css">
     <!-- calendar -->
-    <link rel="stylesheet" href="{{ $dir }}css/monthly.css">
+    {{-- <link rel="stylesheet" href="{{ $dir }}css/monthly.css"> --}}
+    <link rel="stylesheet" href="{{ asset($dir . 'css/monthly.css') }}">
     <!-- //calendar -->
     <!-- //font-awesome icons -->
     <script src="{{ $dir }}js/jquery2.0.3.min.js"></script>
@@ -276,5 +278,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </script>
     <!-- //calendar -->
 </body>
+<script type="text/javascript" src="https://example.com/fontawesome/v6.5.1/js/conflict-detection.js"></script>
 
 </html>
